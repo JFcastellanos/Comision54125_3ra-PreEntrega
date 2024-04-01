@@ -1,0 +1,43 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+    <main class="container">
+        <br>
+        <h1 class="text-center bg-secondary bg-opacity-25"> PROFESORES </h1>
+        <br>
+        <a href="profesor_alta" class="btn btn-outline-primary btn-sm">Adicionar un Nuevo Profesor</a>
+        <a href="profesor_buscar" class="btn btn-outline-primary btn-sm">Buscar Profesor</a>
+        <br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>CODIGO</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in profesores %}
+                <tr>
+                    <td>{{n.id}}</td>
+                    <td>{{n.nombre}}</td>
+                    <td>{{n.codigo}}</td>
+                    <td><a href="{% url 'profesor_elimina' n.id %}" class="btn btn-outline-danger btn-sm">BORRAR</a></td>
+                    <td><a href="{% url 'profesor_editar'  n.id %}" class="btn btn-outline-warning btn-sm">EDITAR</a></td>
+                </tr>
+                {% endfor %}
+    
+            </tbody>
+    
+    
+        </table>
+        <br>
+
+    </main>
+
+
+{% endblock %} 

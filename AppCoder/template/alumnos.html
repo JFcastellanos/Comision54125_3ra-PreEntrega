@@ -1,0 +1,43 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+    <main class="container">
+        <br>
+        <h1 class="text-center bg-secondary bg-opacity-25"> ALUMNOS </h1>
+        <br>
+        <a href="alumno_alta" class="btn btn-outline-primary btn-sm">Adicionar un Nuevo Alumno</a>
+        <a href="alumno_buscar" class="btn btn-outline-primary btn-sm">Buscar Alumno</a>
+        <br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>DNI</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in alumnos %}
+                <tr>
+                    <td>{{n.id}}</td>
+                    <td>{{n.nombre}}</td>
+                    <td>{{n.dni}}</td>
+                    <td><a href="{% url 'alumno_elimina' n.id %}" class="btn btn-outline-danger btn-sm">BORRAR</a></td>
+                    <td><a href="{% url 'alumno_editar'  n.id %}" class="btn btn-outline-warning btn-sm">EDITAR</a></td>
+                </tr>
+                {% endfor %}
+    
+            </tbody>
+    
+    
+        </table>
+        <br>
+
+    </main>
+
+
+{% endblock %} 

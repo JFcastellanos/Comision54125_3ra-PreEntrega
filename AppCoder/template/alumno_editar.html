@@ -1,0 +1,21 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+    <form action="{% url 'alumno_editar' alumno.id %}" method="POST">
+        {% csrf_token %}
+        <p>Nombre</p>
+        {{mi_formulario.nombre}}
+
+        <p>Dni</p>
+        {{mi_formulario.dni}}
+
+        <button class="btn btn-primary">Enviar</button>
+
+
+    </form>
+
+{% endblock %} 
